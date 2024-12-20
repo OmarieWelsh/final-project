@@ -1,0 +1,44 @@
+/*
+declaration block::
+
+selector{
+    property: value;
+    property2: value;
+}
+*/
+
+body{
+    background-color:rgb(7, 20, 99);
+    color: rgb(255, 255, 255);
+}
+
+nav{
+    height: 600px;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    line-height: 30px;
+}
+
+footer{
+    text-align: center;
+    margin-right: 200px;
+}
+
+#memeImage{
+    position: absolute; /* this will allow us to move the image around */
+    margin-right: 200px;
+    width: 400px;
+    left: 100px; /* optional */
+    top: 100px; /* optional */
+}
+
+p{
+    width: 100%;
+    text-align:  center;
+}
+
+/* custom css style */
+.leftalign{
+    text-align: left;
+}
