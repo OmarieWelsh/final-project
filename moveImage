@@ -1,0 +1,103 @@
+<!-- Omarie Welsh, 9/21/2024 -->
+<!-- DOCTYPE this is the first tag on the page and it tells the browser that this is an HTML5 page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <html>
+    <!-- the head section has info for the browser and search 
+    engine -->
+ 
+    <title>CSC102 Home Page</title>
+    <!-- add a link to our css file -->
+        <link rel="stylesheet" href="main.css">
+        <style>
+            /* embedded styles - use with caution
+            body{
+                background-color: navyblue;
+            } */
+    </style>
+
+    <script>
+        // track the interval id
+        var intervalId = 0;
+
+        // this function will move our image around the page
+        function moveImage(){
+            // make it so we can't click on the start button (since we just started moving the image)
+            document.getElementById("startButton").disabled = true;
+            // make the stop button clickable
+            document.getElementById("stopButton").disabled = false;
+
+
+            // create a nickname/shortcut variable that points to our HTML image
+            var image = document.getElementById("memeImage");
+            var oldX = 0;
+            var oldY = 0;
+            // keeping track of the intervalId will allow us to stop moving the image
+            intervalId = setInterval(function(){
+                // set the x and y coordinates for the image
+                var newX = 5; // moving the image by 5 pixels - this could be a random number
+                var newY = 5; // moving the image by 5 pixels - this could be a random number
+
+                // oldX = newX is the same thing as oldX = old + newX
+                oldX = oldX + newX;
+                //oldX += newX;
+                oldY = newY + newY;
+
+                console.log("oldX = " + oldX);
+                console.log("oldY = " + oldY);
+
+                image.style.left = oldX + "px";
+                image.style.top = oldY + "px";
+            }, 1000); //1000 is 1000 miliseconds = 1 second
+        }
+
+        // this function will stop moving the image
+        function stopMoveImage(){
+            // make it so we can click on the start button (since we just started moving the image)
+            document.getElementById("startButton").disabled = false;
+            // make the stop button not clickable
+            document.getElementById("stopButton").disabled = true;
+            // call the built in JavaScript function to clear out the interval
+            clearInterval(intervalId);
+        }
+    </script>
+</head>
+<body>
+    <!-- the body section holds the text and images that we want to show to the user -->
+    <header>
+        <h1>Welcome to my CSC102 Home Page</h1>
+        <!-- create a nav section to hold the menu -->
+         <nav>
+            <a href="index.html">Home</a>
+            <br>
+            <a href="boards.html">Boards</a>
+            <br>
+            <a href="game.html">Game</a>
+         </nav>
+    </header> 
+            
+    <!-- p is paragraph tag; has spacing around it by default --> 
+    <p>
+        <input type="button" id="startButton" value="Start Moving Image" onclick="moveImage();">
+        <input type="button" id="stopButton" value="Stop Moving Image" onclick="stopMoveImage();">
+
+        <!-- img is the image tag -->
+        <img src="meme.jpg" id="memeImage">
+    </p>
+
+    <!-- add some personal & UAT info to the footer -->
+    <footer>
+        Omarie Welsh
+        <br>
+        University of Advancing Technology
+        <br>
+        2625 W. Baseline Road
+        <br>
+        Tempe, AZ 85283
+    </footer>
+        </body>
+    </html>
